@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksky</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>BOOKSKY</h1>
+    <div class="container">
+        <div class="book-container">
+            <h3>David Copperfield</h3>
+            <h4>:Charles Dickens</h4><BR><BR>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Sequi iure totam possimus iste, officiis natus
+                veniam.
+                Dolores nostrum veniam assumenda minima quis vel! Ipsa
+                debitis
+                sit voluptates aspernatur, ex pariatur?<br><br>
+                <button id="btn1">Clear</button>
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div id="overlay"></div>
+    <div id="popup">
+        <h2>Add Book</h2>
+        <form id="form">
+            <input type="text" placeholder="Book Title" id="title">
+            <input type="text" placeholder="Book Author" id="author"><br><br>
+            <textarea placeholder="Short Description" id="area"></textarea><br>
+            <button id="add">Add</button>
+            <button id="cancel">Cancel</button>
+        </form>
+    </div>
+
+
+
+
+    <button id="btn2">+</button>
+
+
+
+
+
+
+
+
+    <script>
+
+        var new_bookcontainer = document.querySelector(".book-container")
+        var new_btn = document.getElementById("btn1")
+        var adding = document.getElementById("btn2")
+        var over = document.getElementById("overlay")
+        var pop = document.getElementById("popup")
+        new_btn.addEventListener("click", function () {
+            new_bookcontainer.remove()
+        })
+
+        adding.addEventListener("click", function () {
+            over.style.display = "block"
+            popup.style.display = "block"
+        })
+        var popdis = document.getElementById("cancel")
+        popdis.addEventListener("click", function (event) {
+            event.preventDefault() 
+            over.style.display = "none"
+            popup.style.display = "none"
+        })
+        var new_container = document.querySelector(".container")
+        var z = document.getElementById("add")
+        var a = document.getElementById("title")
+        var b = document.getElementById("author")
+        var c = document.getElementById("area")
+        z.addEventListener("click", function (event) {
+            event.preventDefault()
+            var crediv = document.createElement("div")
+            crediv.setAttribute("class", "book-container")
+            crediv.innerHTML = `<h3>${a.value}</h3><h4>${b.value}</h4><br><p>${c.value}</p><br><button id="btn" onclick="book(event)">Clear</button>`
+            new_container.append(crediv)
+            over.style.display = "none"
+            popup.style.display = "none"
+        })
+        function book(event) {
+            event.target.parentElement.remove()
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
